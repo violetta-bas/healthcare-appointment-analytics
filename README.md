@@ -1,7 +1,7 @@
 # healthcare-appointment-analytics
 Power BI healthcare analytics dashboard exploring appointment volume, no-shows, provider performance, and scheduling efficiency. 
 
-**Business question:**
+**Business question:** 
 How can a clinic reduce missed appointments, improve provider utilization, and better understand patient demand?
 
 ## Dashboard
@@ -45,40 +45,86 @@ Key Findings
 
 ## Key Insights
 
-•	**Pediatrics had the highest appointment volume,** with approximately **27.4K appointments,** making it the busiest department in the dataset. 
-•	The overall **no-show rate was 20.19%.** No-shows were highest in **Pediatrics (21.90%),** while scheduling lead time showed an especially strong pattern: appointments booked **15+ days in advance had a 32.74% no-show rate,** compared with only **4.65% for same-day appointments.**
-•	Attendance also varied by **weekday and insurance type. Saturday had the highest no-show rate (23.08%).** Among insurance groups, **Medicaid had the highest rate (22.51%),** while **Medicare (15.37%) and Humana (15.36%)** had the lowest. 
-•	An unexpected pattern appeared in the **SMS reminder analysis:** appointments with an SMS reminder had a** 27.57% no-show rate,** compared with **16.70% without an SMS.** This should **not be interpreted as evidence that SMS reminders cause more no-shows;** other factors, such as which patients or appointments received reminders, may explain the difference. 
-•	**Primary Care showed the highest appointment workload per provider (7.56K).** The provider volume vs. no-show analysis suggests that **higher provider volume was not consistently associated with higher no-show rates** —some of the highest-volume providers maintained no-show rates around or below the overall average. 
-•	**Wednesday was the busiest day,** with approximately **25.9K appointments,** and **same-day appointments were the most common scheduling category,** accounting for **34.89% of all appointments.
+*	**Pediatrics had the highest appointment volume,** with approximately **27.4K appointments,** making it the busiest department in the dataset.
+*	The overall **no-show rate was 20.19%.** No-shows were highest in **Pediatrics (21.90%),** while scheduling lead time showed an especially strong pattern: appointments booked **15+ days in advance had a 32.74% no-show rate,** compared with only **4.65% for same-day appointments.**
+*	Attendance also varied by **weekday and insurance type. Saturday had the highest no-show rate (23.08%).** Among insurance groups, **Medicaid had the highest rate (22.51%),** while **Medicare (15.37%) and Humana (15.36%)** had the lowest.
+*	An unexpected pattern appeared in the **SMS reminder analysis:** appointments with an SMS reminder had a** 27.57% no-show rate,** compared with **16.70% without an SMS.** This should **not be interpreted as evidence that SMS reminders cause more no-shows;** other factors, such as which patients or appointments received reminders, may explain the difference.
+*	**Primary Care showed the highest appointment workload per provider (7.56K).** The provider volume vs. no-show analysis suggests that **higher provider volume was not consistently associated with higher no-show rates** —some of the highest-volume providers maintained no-show rates around or below the overall average.
+*	**Wednesday was the busiest day,** with approximately **25.9K appointments,** and **same-day appointments were the most common scheduling category,** accounting for **34.89% of all appointments.
 
 ## Data Model
 
 The project uses a **star schema,** with FactAppointments as the central fact table connected to four dimensional tables.
 ![Power BI Data Model](images/data-model.png)
 
-•	**FactAppointments** — The original appointment dataset was obtained from **Kaggle.** The data was reviewed, cleaned, formatted, and supplemented with additional fields required for the analysis. It contains the main appointment-level information and serves as the core table of the data model. 
-•	**CalendarDim** — Created from appointment dates and supplemented with date-related attributes such as **day, weekday, month, and month number** to support time-based analysis, sorting, and visualizations. 
-•	**DepartmentDim** — Contains **Department ID and Department Name,** allowing appointment activity and performance to be analyzed across departments. 
-•	**InsuranceDim** — Contains **Insurance ID and Insurance Name,** enabling comparison of appointment and no-show patterns across insurance providers. 
-•	**ProviderDim** — Contains **Provider ID and Provider Name,** supporting provider-level analysis of appointment volume, patient workload, and no-show performance. 
+* **FactAppointments** — The original appointment dataset was obtained from **Kaggle.** The data was reviewed, cleaned, formatted, and supplemented with additional fields required for the analysis. It contains the main appointment-level information and serves as the core table of the data model.
+* **CalendarDim** — Created from appointment dates and supplemented with date-related attributes such as **day, weekday, month, and month number** to support time-based analysis, sorting, and visualizations.
+* **DepartmentDim** — Contains **Department ID and Department Name,** allowing appointment activity and performance to be analyzed across departments.
+* **InsuranceDim** — Contains **Insurance ID and Insurance Name,** enabling comparison of appointment and no-show patterns across insurance providers.
+* **ProviderDim** — Contains **Provider ID and Provider Name,** supporting provider-level analysis of appointment volume, patient workload, and no-show performance. 
+
 The dimensional tables were added to create a more structured and scalable data model and to support clearer relationships and analysis in Power BI.
 
 
 ## **Business Recommendations**
 
 Based on the dashboard analysis, the clinic could take several actions to address the original business question:
-•	**Reduce missed appointments:** Focus attendance interventions on appointments scheduled far in advance. The no-show rate rises from **4.65% for same-day appointments to 32.74% for appointments scheduled 15+ days ahead,** suggesting that long lead-time appointments are the strongest candidates for additional confirmation or follow-up closer to the appointment date. Higher-risk groups, such as younger adults and Saturday appointments, could also receive targeted attention. 
-•	**Reassess the SMS reminder strategy:** Appointments with recorded SMS reminders showed a higher no-show rate than those without reminders (**27.57% vs. 16.70%**). This does not demonstrate that SMS reminders cause no-shows, but it suggests that the clinic should investigate **who receives reminders, when they are sent, and whether reminders are being targeted toward appointments already at higher risk of being missed.**
-•	**Improve provider utilization:** Workload varies considerably across departments, with **Primary Care showing the highest appointments per provider.** Comparing appointment volume with provider no-show rates can help identify high-volume providers and departments where workload balancing or additional capacity may be beneficial. 
-•	**Align capacity with patient demand: Wednesday is the busiest appointment day, ** while same-day appointments are the most common scheduling category (**34.89% of appointments**). Staffing and appointment availability could therefore be aligned with these demand patterns, with greater capacity allocated to the busiest periods. 
+* **Reduce missed appointments:** Focus attendance interventions on appointments scheduled far in advance. The no-show rate rises from **4.65% for same-day appointments to 32.74% for appointments scheduled 15+ days ahead,** suggesting that long lead-time appointments are the strongest candidates for additional confirmation or follow-up closer to the appointment date. Higher-risk groups, such as younger adults and Saturday appointments, could also receive targeted attention. 
+* **Reassess the SMS reminder strategy:** Appointments with recorded SMS reminders showed a higher no-show rate than those without reminders (**27.57% vs. 16.70%**). This does not demonstrate that SMS reminders cause no-shows, but it suggests that the clinic should investigate **who receives reminders, when they are sent, and whether reminders are being targeted toward appointments already at higher risk of being missed.**
+* **Improve provider utilization:** Workload varies considerably across departments, with **Primary Care showing the highest appointments per provider.** Comparing appointment volume with provider no-show rates can help identify high-volume providers and departments where workload balancing or additional capacity may be beneficial.
+* **Align capacity with patient demand: Wednesday is the busiest appointment day,** while same-day appointments are the most common scheduling category (**34.89% of appointments**). Staffing and appointment availability could therefore be aligned with these demand patterns, with greater capacity allocated to the busiest periods.
+
 **Conclusion**
 The analysis suggests that the clinic could improve operations by **prioritizing long lead-time appointments for attendance interventions, evaluating its reminder strategy, balancing provider workload, and aligning staffing and scheduling capacity with observed patient demand.** These actions could help reduce missed appointments while improving the use of available clinical resources.
 
 
-##Selected DAX Measures
+## Selected DAX Measures
 
+### Total Appointments
 
+```DAX
+Total Appointments = 
+COUNTROWS(FactAppointments)
+```
+
+### Distinct Patients
+
+```DAX
+Distinct Patients = 
+DISTINCTCOUNT(FactAppointments[PatientId])
+```
+
+### No-Show Rate
+
+```DAX
+No-Show Rate = 
+DIVIDE(
+    [No Show Count],
+    [Total Appointments],
+    0
+)
+```
+
+### 15+ Days No-Show Rate
+
+```DAX
+15+ Days No-Show Rate = 
+CALCULATE(
+    [No-Show Rate],
+    FactAppointments[LeadTimeCategory] = "15+ Days"
+)
+```
+
+### Patients per Provider
+
+```DAX
+Patients per Provider = 
+DIVIDE(
+    [Distinct Patients],
+    DISTINCTCOUNT(FactAppointments[ProviderID]),
+    0
+)
+```
 
 [View all DAX measures](dax/measures.md)
 
@@ -94,6 +140,6 @@ The original data was **reviewed, cleaned, and formatted** before analysis. **Pr
 
 ## Notes
 
-**Interactive report:** This project was developed in Power BI Desktop. A public interactive version is not available
+Interactive report: This project was developed in Power BI Desktop. A public interactive version is not available.
 
 
