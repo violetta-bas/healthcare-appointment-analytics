@@ -19,6 +19,7 @@ This page provides a **quick overview of appointment activity across the healthc
 This page focuses on **patient attendance and no-show behavior.** It highlights differences in no-show rates across **patient demographics, scheduling lead times, departments, insurance types, weekdays, and SMS reminders**, providing insight into the factors associated with missed appointments.
 
 Key Findings
+
 **Scheduling lead time shows the strongest relationship with no-show rates.** Same-day appointments have the lowest no-show rate at **4.65%,** while appointments scheduled **15+ days in advance reach 32.74%.** This suggests that longer waiting periods are strongly associated with a higher likelihood of missed appointments.
 Younger adults (18–34) and Pediatrics also show relatively higher no-show rates, indicating potential areas for targeted attendance strategies.
 The SMS comparison shows **27.57% for appointments with an SMS recorded versus 16.70% without SMS.** This should be described as an **association rather than evidence that SMS reminders increase no-shows,** since reminders may be sent selectively or depend on scheduling characteristics.
@@ -75,6 +76,7 @@ Based on the dashboard analysis, the clinic could take several actions to addres
 * **Align capacity with patient demand: Wednesday is the busiest appointment day,** while same-day appointments are the most common scheduling category (**34.89% of appointments**). Staffing and appointment availability could therefore be aligned with these demand patterns, with greater capacity allocated to the busiest periods.
 
 **Conclusion**
+
 The analysis suggests that the clinic could improve operations by **prioritizing long lead-time appointments for attendance interventions, evaluating its reminder strategy, balancing provider workload, and aligning staffing and scheduling capacity with observed patient demand.** These actions could help reduce missed appointments while improving the use of available clinical resources.
 
 
